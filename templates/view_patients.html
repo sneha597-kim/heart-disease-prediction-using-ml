@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #111;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Patient Data</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Chest Pain</th>
+            <th>Resting BP</th>
+            <th>Serum Cholesterol</th>
+            <th>Fasting Blood Sugar</th>
+            <th>Resting ECG</th>
+            <th>Max Heart Rate</th>
+            <th>Exercise Angina</th>
+            <th>Oldpeak</th>
+            <th>Slope</th>
+            <th>Major Vessels</th>
+            <th>Prediction</th>
+            <th>Action</th>
+        </tr>
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ 'Male' if patient.gender == 1 else 'Female' }}</td>
+            <td>{{ patient.chestpain }}</td>
+            <td>{{ patient.restingBP }}</td>
+            <td>{{ patient.serumcholestrol }}</td>
+            <td>{{ patient.fastingbloodsugar }}</td>
+            <td>{{ patient.restingrelectro }}</td>
+            <td>{{ patient.maxheartrat }}</td>
+            <td>{{ patient.exerciseangia }}</td>
+            <td>{{ patient.oldpeak }}</td>
+            <td>{{ patient.slope }}</td>
+            <td>{{ patient.noofmajor }}</td>
+            <td>{{ patient.prediction }}</td>
+            <td>
+                <form action="{{ url_for('delete_patient', patient_id=patient.id) }}" method="POST">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

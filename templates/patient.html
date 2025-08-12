@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <!--<link rel="stylesheet" href="sty.css">-->
+    <style>
+        body{
+            background-image: url('https://www.hospitaltimes.co.uk/wp-content/uploads/2019/04/heart-image-2L.jpg');
+        }
+        /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #0d0d0d;
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-style: italic;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 80px; /* To account for the fixed navbar */
+}
+
+/* Card Styles */
+.card {
+    background-image: url('https://th.bing.com/th/id/OIP.kwuHkY38J_gkUpz8puz1vAAAAA?w=315&h=156&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #0b0b0b;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <span class="navbar-brand">Heart Disease Prediction</span>
+            <ul class="navbar-links">
+                <li><a href="/homes">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/patient">Patient Details</a></li>
+                <li><a href="/profile">User Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Interactive Cards -->
+    <div class="card-container">
+        <!-- Card 1: Enter Patient Details -->
+        <div class="card" onclick="window.location.href='/enter_patient'">
+            <img src="https://raw.githubusercontent.com/mansi1597/Heart-disease-prediction/master/screenshots/prediction_page_filled.png" alt="Form Icon" class="card-icon">
+            <h2>Enter Patient Details</h2>
+            <p>Click here to enter new patient details and predict heart disease risk.</p>
+        </div>
+
+        <!-- Card 2: View Patient Data -->
+        <div class="card" onclick="window.location.href='view_patients'">
+            <img src="https://th.bing.com/th/id/OIP.PnldqluGZqEEEO4hbluUpwAAAA?w=178&h=141&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Table Icon" class="card-icon">
+            <h2>View Patient Data</h2>
+            <p>Click here to view all patient details and their prediction results.</p>
+        </div>
+    </div>
+</body>
+</html>

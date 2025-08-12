@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image:url('https://www.hospitaltimes.co.uk/wp-content/uploads/2019/04/heart-image-2L.jpg');
+    color: #333; /* Dark gray font color */
+    font-style: italic; /* Italic font style */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #01070c;
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-style: italic; /* Italic font style */
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(32, 27, 53);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity:1;
+}
+
+h1 {
+    font-size: 32px;
+    color: #ecf1f8;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #fbf9f9; /* Gray font color */
+    margin-bottom: 20px;
+}
+
+/* Accuracy Box */
+.accuracy-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.accuracy-box h2 {
+    font-size: 24px;
+    color: #050709;
+    margin-bottom: 10px;
+}
+
+.accuracy-box p {
+    font-size: 16px;
+    color: #0c0c0c; /* Gray font color */
+}
+
+.accuracy-box strong {
+    color: #007bff;
+}
+
+/* Call to Action */
+.cta {
+    margin-top: 20px;
+}
+
+.cta a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta a:hover {
+    text-decoration: underline;
+}
+.con{
+    display:flex;
+    width:100%;
+}
+.id1{
+    width:50%;
+}  
+id2{
+    width:50%;
+}  
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <span class="navbar-brand">Heart Disease Prediction</span>
+            <ul class="navbar-links">
+                <li><a href="/homes">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/patient">Patient Details</a></li>
+                <li><a href="/profile">User Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Content -->
+    <div class="container">
+        <h1>Welcome!!</h1>
+        <p>We are glad to have you here. This application helps predict the risk of heart disease using a pre-trained SVM model.</p>
+
+        <!-- SVM Model Accuracy -->
+        <div class="accuracy-box">
+            <h2>SVM Model Accuracy</h2>
+            <p>The accuracy of our SVM model is: </p>
+            <div class="con">
+            <div class="id1">
+                <img src="{{ url_for('static', filename='images/Screenshot 2025-03-03 204604.png') }}" style="width:400px;height:350px;">
+            </div>
+            <div class="id2">
+                <img src="{{ url_for('static', filename='images/Screenshot 2025-03-10 215358.png')}}" style="width:400px;height:350px;">
+            </div>
+            </div>
+            <p>This model has been trained and tested on a large dataset to ensure reliable predictions.</p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <p>Ready to get started? <a href="/patient">Enter Patient Details</a></p>
+        </div>
+    </div>
+</body>
+</html>

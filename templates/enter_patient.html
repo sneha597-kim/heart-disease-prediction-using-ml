@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Patient Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://studyfinds.org/wp-content/uploads/2020/05/AdobeStock_315599117-scaled.jpeg');
+            color: #faf1f1;
+            font-style: italic;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        input:focus, select:focus {
+            border: 2px solid #007BFF;
+            outline: none;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 15px 20px;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-links li {
+            margin-left: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #eef1f4;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #fdf3f3;
+            font-style: italic;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-style: italic;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .instructions h3 {
+            font-size: 18px;
+            color: #000;
+            font-style: italic;
+        }
+
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .instructions ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #232020;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <span class="navbar-brand">Heart Disease Prediction</span>
+            <ul class="navbar-links">
+                <li><a href="/homes">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/patient">Patient Details</a></li>
+                <li><a href="/profile">User Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Patient Details Form -->
+    <div class="container">
+        <h1>Enter Patient Details</h1>
+        <form action="/predict" method="POST">
+
+            <div class="form-group">
+                <label for="name">Patient Name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter patient name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" class="form-control" min="0" max="120"  placeholder="Enter age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">gender:</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="chestpain">Chest Pain Type:</label>
+                <select id="chestpain" name="chestpain" class="form-control" required>
+                    <option value="0">Typical Angina</option>
+                    <option value="1">Atypical Angina</option>
+                    <option value="2">Non-Anginal Pain</option>
+                    <option value="3">Asymptomatic</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="restingBP">Resting Blood Pressure (mmHg):</label>
+                <input type="number" id="restingBP" name="restingBP" class="form-control" placeholder="Enter blood pressure"required>
+            </div>
+
+            <div class="form-group">
+                <label for="serumcholestrol">Serum Cholesterol (mg/dL):</label>
+                <input type="number" id="serumcholestrol" name="serumcholestrol" class="form-control" placeholder="enter serumcholestrol" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fastingbloodsugar">Fasting Blood Sugar:</label>
+                <select id="fastingbloodsugar" name="fastingbloodsugar" class="form-control" required>
+                    <option value="1">Greater than 120 mg/dL</option>
+                    <option value="0">Less than or equal to 120 mg/dL</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="restingrelectro">Resting ECG Result:</label>
+                <select id="restingrelectro" name="restingrelectro" class="form-control" required>
+                    <option value="0">Normal</option>
+                    <option value="1">ST-T Wave Abnormality</option>
+                    <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="maxheartrat">Max Heart Rate Achieved:</label>
+                <input type="number" id="maxheartrat" name="maxheartrat" class="form-control" min="70" max="210" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exerciseangia">Exercise-Induced Angina:</label>
+                <select id="exerciseangia" name="exerciseangia" class="form-control" placeholder="Enter max heart rate" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="oldpeak">Oldpeak (ST depression):</label>
+                <input type="number" step="0.1" id="oldpeak" name="oldpeak" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="slope">Slope of the ST segment:</label>
+                <select id="slope" name="slope" class="form-control" required>
+                    <option value="0">Upsloping</option>
+                    <option value="1">Flat</option>
+                    <option value="2">Downsloping</option>
+                    <option value="3">Not Specified</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="noofmajor">Number of Major Vessels (0–3):</label>
+                <input type="number" id="noofmajor" name="noofmajor" min="0" max="3" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Predict</button>
+        </form>
+
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ul>
+                <li>Sex: 1 = Male, 0 = Female</li>
+                <li>Chest Pain: 0 = Typical Angina, 1 = Atypical, 2 = Non-Anginal, 3 = Asymptomatic</li>
+                <li>Fasting Sugar: 1 = >120 mg/dL, 0 = ≤120 mg/dL</li>
+                <li>ECG: 0 = Normal, 1 = ST-T abnormality, 2 = LV Hypertrophy</li>
+                <li>Exercise Angina: 1 = Yes, 0 = No</li>
+                <li>Max Heart Rate: Between 70-210 bpm</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            let age = document.getElementById("age").value;
+            if (age < 0 || age > 120) {
+                alert("Please enter a valid age (0-120)");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
